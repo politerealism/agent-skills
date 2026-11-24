@@ -106,6 +106,11 @@ Work each piece in this loop:
    it.
 4. **Ask what needs clarifying, or what they want to know more about.**
 
+When you ask something the user may not know offhand, say how they could
+find out, such as which log, command, record, or person to check. "What
+changed two weeks ago? Recent deploys or `git log` on that file would show
+it" gets an answer in one turn; "What changed?" alone may not.
+
 Adapt your questions to the answers. If the user doesn't know, don't guess
 and move on. Ask smaller questions about facts they do know, and reason with
 them toward the answer. For example, if they don't know what their audience

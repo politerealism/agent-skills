@@ -19,10 +19,18 @@ with them without anyone getting annoyed with me. I ask a lot of questions:
 Why did you do it that way? What does that mean? When I'm stuck, I ask for a
 metaphor, then extend it myself to check that I've understood.
 
-Left to their defaults, though, agents rush ahead on a guess, agree with you
-when you're partly wrong, and either interrogate you or lecture you. Pair
-Thinking puts proven teaching practices into the agent's instructions:
-backward design, success criteria, scaffolding, and checks for understanding.
+Left to their defaults, though, agents often rush ahead on a guess, bury you
+in long answers or batches of questions, and leave it to you to decide when
+you're done. Pair Thinking puts proven teaching practices into the agent's
+instructions: backward design, success criteria, scaffolding, and checks for
+understanding.
+
+## What it is and isn't
+
+Pair Thinking doesn't make an agent smarter or more capable. It changes how
+the agent works with you: shorter turns, one question at a time, a choice of
+depth, checks for understanding, and a clear stopping point. It's for people
+who want to understand a problem, not just receive an answer.
 
 ## What it does
 
@@ -57,6 +65,33 @@ backward design, success criteria, scaffolding, and checks for understanding.
 > campuses. What would make this done for you: finding the cause, having a
 > fix to apply, or deciding whether snooping should stay on the core and
 > aggregation switches?
+
+## How it compares
+
+We tested two agents on the same model, one with the skill and one without,
+on a five-exchange conversation. A simulated user with a hidden backstory
+asked, "Our API is getting slow. Can you help me add Redis caching to it?"
+The real cause was a missing database index and an N+1 query, and caching
+would have shown stale data.
+
+Both agents questioned the Redis idea, found the real cause, and corrected
+the user's partly wrong metaphor. The skill didn't make the agent more
+capable. The differences were in how each one worked:
+
+| | Without the skill | With the skill |
+|---|---|---|
+| First reply | Six questions, then a full lesson on caching | A first take, then a choice: talk it through or get a quick answer |
+| Reply length | About 350 to 450 words a turn | About a quarter shorter |
+| Questions | Batches, or "paste it and I'll help" | One per turn, often a check for understanding |
+| Finding the cause | Faster: its long checklist included "check recent deploys" | One turn slower: it asked "what changed?" before saying where to look |
+| Ending | Kept giving advice | Said the goal was met and asked whether to stop |
+
+The slower discovery led to a change in the skill: when the agent asks
+something you may not know, it now says how to find out.
+
+A simulated user doesn't get tired or overwhelmed, so this test can't
+measure the skill's main purpose: keeping a real person engaged and
+understanding. If you try it, your feedback is the real test.
 
 ## Install
 
